@@ -27,6 +27,9 @@ function App() {
       );
     }
   };
+  useEffect(() => {
+    getLocation();
+  }, []);
 
   const location = () => {
     axios.get(url).then((res) => {
@@ -34,11 +37,6 @@ function App() {
       console.log(res.data);
     });
   };
-
-  useEffect(() => {
-    getLocation();
-    location();
-  }, []);
 
   return (
     <div className="w-full h-full relative">
@@ -48,6 +46,16 @@ function App() {
         <div className=" justify-between text-center ">
           <div className="max-w-[1240px] sm:h-[700px] h-[500px] mx-auto ">
             <p>{status}</p>
+            {!data.main ? (
+              <button
+                onClick={location}
+                className="rounded-lg bg-gray-900/90 p-2"
+              >
+                What is the weather today?
+              </button>
+            ) : (
+              ""
+            )}
             <p className="mt-10 text-4xl">{data.name}</p>
             {data.main ? (
               <h1 className="text-8xl p-4">{data.main.temp.toFixed()} ℃</h1>
@@ -55,7 +63,7 @@ function App() {
               ""
             )}
             {data.main ? (
-              <p className="absolute rotate-90 mt-10 sm:right-5 right-0">
+              <p className="absolute rotate-90 mt-10 sm:mt-24 sm:right-5 right-0">
                 {data.weather[0].main}
               </p>
             ) : (
