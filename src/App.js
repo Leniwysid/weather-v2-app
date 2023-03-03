@@ -39,6 +39,7 @@ function App() {
     getLocation();
     location();
   }, []);
+
   return (
     <div className="w-full h-full relative">
       <img className="w-full h-screen object-cover" src={foto} alt="/" />
