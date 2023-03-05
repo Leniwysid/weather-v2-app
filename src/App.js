@@ -39,37 +39,6 @@ function App() {
       console.log(lon);
     });
   };
-
-  const array = [
-    { age: 20, name: "Alex", house: "Griffindor" },
-    { age: 25, name: "Alexander", house: "Griffindor" },
-    { age: 15, name: "Diego", house: "Slytherin" },
-    { age: 18, name: "Huy", house: "Hufflepuff" },
-    { age: 32, name: "Esmeralda", house: "Ravenclaw" },
-  ];
-  console.log(array);
-
-  const arrayAges = [
-    array[0].age,
-    array[1].age,
-    array[2].age,
-    array[3].age,
-    array[4].age,
-  ];
-  console.log(arrayAges);
-  const arrayHouses = [
-    array[0].house,
-    array[1].house,
-    array[2].house,
-    array[3].house,
-    array[4].house,
-  ];
-  console.log(arrayHouses);
-
-  console.log((array[0].surname = array[0].name + array[0].house));
-  console.log((array[1].surname = array[1].name + array[1].house));
-  console.log(array);
-
   return (
     <div className="w-full h-full relative">
       <img className="w-full h-screen object-cover" src={foto} alt="/" />
