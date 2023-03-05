@@ -12,17 +12,17 @@ function App() {
 
   const getLocation = () => {
     if (!navigator.geolocation) {
-      setStatus("Geoloc uis not supported by ur browser");
+      setStatus("Geolocation is not supported by your browser");
     } else {
       setStatus("Locating...");
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setStatus(null);
-          setLat(position.coords.latitude);
-          setLon(position.coords.longitude);
+          setLat(position.coords.latitude.toFixed(2));
+          setLon(position.coords.longitude.toFixed(2));
         },
         () => {
-          setStatus("unable to retrive ur location");
+          setStatus("unable to retrive your location");
         }
       );
     }
@@ -35,8 +35,40 @@ function App() {
     axios.get(url).then((res) => {
       setData(res.data);
       console.log(res.data);
+      console.log(lat);
+      console.log(lon);
     });
   };
+
+  const array = [
+    { age: 20, name: "Alex", house: "Griffindor" },
+    { age: 25, name: "Alexander", house: "Griffindor" },
+    { age: 15, name: "Diego", house: "Slytherin" },
+    { age: 18, name: "Huy", house: "Hufflepuff" },
+    { age: 32, name: "Esmeralda", house: "Ravenclaw" },
+  ];
+  console.log(array);
+
+  const arrayAges = [
+    array[0].age,
+    array[1].age,
+    array[2].age,
+    array[3].age,
+    array[4].age,
+  ];
+  console.log(arrayAges);
+  const arrayHouses = [
+    array[0].house,
+    array[1].house,
+    array[2].house,
+    array[3].house,
+    array[4].house,
+  ];
+  console.log(arrayHouses);
+
+  console.log((array[0].surname = array[0].name + array[0].house));
+  console.log((array[1].surname = array[1].name + array[1].house));
+  console.log(array);
 
   return (
     <div className="w-full h-full relative">
