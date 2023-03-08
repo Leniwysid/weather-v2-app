@@ -52,7 +52,7 @@ function App() {
                 onClick={location}
                 className="rounded-lg bg-gray-900/90 p-2"
               >
-                What is the weather today?
+                Press here to check the weather
               </button>
             ) : (
               ""
